@@ -48,6 +48,7 @@ paypal.payment.create(create_payment_json, function (error, payment) {
 
 var execute_payment_json = {
     "payer_id": "Appended to redirect url",
+    "paymentId": "Appended to redirect url",
     "transactions": [{
         "amount": {
             "currency": "USD",
@@ -55,8 +56,6 @@ var execute_payment_json = {
         }
     }]
 };
-
-var paymentId = 'PAYMENT id created in previous step';
 
 paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
     if (error) {
